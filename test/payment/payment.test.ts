@@ -3,6 +3,12 @@ import { PaymentService } from '../../src/payment/payment'
 describe('PaymentService', () => {
   let payment: PaymentService
 
+  describe('constructor', () => {
+    test('throws an error when amount is 0', () => {
+      expect(() => new PaymentService(0)).toThrow()
+    })
+  })
+
   beforeEach(() => {
     payment = new PaymentService(100)
   })
